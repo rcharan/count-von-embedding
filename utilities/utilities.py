@@ -23,7 +23,3 @@ class Timer:
         ms        = delta.microseconds // 1000
         cls.time  = f'{sec}.{ms}'
         print(f'{sec}.{ms} seconds elapsed')
-
-
-def lmap(func, iterable):
-    return list(map(func, iterable))
