@@ -47,10 +47,10 @@ class ProgressBar:
         # Be sure to clear any leftover text
         out_str += ' '*10
 
-        if iterations == self.total_iterations:
-            print(out_str)
-        else:
-            print(out_str, end = '')
+        print(out_str, end = '')
+
+    def end(self):
+        print('')
 
 def format_time(seconds):
     out_str = ''
