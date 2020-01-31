@@ -10,7 +10,7 @@ class ProgressBar:
     def start(self):
         self.update(0)
 
-    def update(self, iterations):
+    def update(self, iterations, metrics = None):
         percent_progress = iterations / self.total_iterations
 
         # Create the bar
@@ -21,7 +21,7 @@ class ProgressBar:
             bar += bar_end
         else:
             bar += '>' + bar_end[1:]
-              
+
 
         if iterations == self.total_iterations:
             if self.start_time is None:
@@ -39,6 +39,10 @@ class ProgressBar:
 
         out_str = f'\r[{bar}] {iterations}/{self.total_iterations}'
         out_str += eta
+
+        if metrics is not None:
+            for name, metric in metrics.items():
+                out_str += f' {name} : {metric:.2f}'
 
         # Be sure to clear any leftover text
         out_str += ' '*10
